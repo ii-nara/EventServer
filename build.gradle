@@ -29,8 +29,11 @@ dependencies {
     // jackson (to json)
     implementation 'com.fasterxml.jackson.core:jackson-databind'
 
-    // rabbit MQ
+    // rabbitMQ
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    // coolsms
+    implementation 'net.nurigo:sdk:4.2.7'
 
     runtimeOnly 'com.mysql:mysql-connector-j'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

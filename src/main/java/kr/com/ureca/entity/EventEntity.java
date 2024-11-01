@@ -3,9 +3,11 @@ package kr.com.ureca.entity;
 import jakarta.persistence.*;
 import kr.com.ureca.entity.Enum.EventStatus;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@Getter
 @Table(name = "event")
 @Entity
 public class EventEntity {
