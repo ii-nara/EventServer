@@ -39,7 +39,7 @@ public class EventService {
               .phoneNumber(eventSaveRequestDto.getPhone())
                   .status(EventStatus.APPLYING)
               .build());
-      if (eventRepository.countByStatus(EventStatus.WINNING) <= 100L) {
+      if (eventRepository.countByStatus(EventStatus.WINNING) < 100L) {
         eventEntity.updateStatus(EventStatus.WINNING);
       } else eventEntity.updateStatus(EventStatus.LOSE);
     }
@@ -49,8 +49,8 @@ public class EventService {
   public void sendMsgToWinner() {
     List<EventEntity> events = eventRepository.findByStatus(EventStatus.WINNING);
     for (EventEntity eventEntity : events) {
+      String phoneNumber = String.join("", eventEntity.getPhoneNumber().split("-"));
       String name = eventEntity.getName();
-      String phoneNumber = eventEntity.getPhoneNumber();
       String content = name + "님! 당첨을 진심으로 축하드립니다!\n\n경품은 MBTKids 마이페이지를 참고해주세요";
       smsCertificationUtil.sendSMS(phoneNumber, content);
     }
