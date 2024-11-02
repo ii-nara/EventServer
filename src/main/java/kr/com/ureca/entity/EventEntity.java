@@ -29,4 +29,8 @@ public class EventEntity {
     this.phoneNumber = phoneNumber;
     this.status = status;
   }
+
+  public void updateStatus(EventStatus status) {
+    this.status = status;
+  }
 }
